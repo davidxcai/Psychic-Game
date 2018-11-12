@@ -21,7 +21,7 @@ function randomLetter() {
 }
 
 //resets the guesses to 9 after a win
-function resetGuess() {
+function resetGuesses() {
     guesses = 9;
     randomLetter();
 }
@@ -44,22 +44,27 @@ document.onkeyup = function (e) {
     if (userInput === computerGuess) {
         wins++;
         console.log("Win")
-        resetGuess();
+        resetGuesses();
         resetGuessed();
+    }
+
+    else if (userInput === guessed) {
+        for(i = 0; i < guessed.length; i++);
+        console.log(this);
     }
 
     //If guesses equals 0, you get 1 loss and the values reset
     else if (guesses < 1) {
         loss++;
         console.log("Loss")
-        resetGuess();
+        resetGuesses();
         resetGuessed();   
     }
 
     //If the user input doesn't match the computer guessed key, decrease the guess' value by 1
     else {
         guesses --;
-        guessed.push(userInput);
+        guessed.push(" " + userInput);
     }
 
     //This displays the values into the HTML
